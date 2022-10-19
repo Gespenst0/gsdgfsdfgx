@@ -13,7 +13,7 @@ services:
       - avito_front_network
 
   api:
-    image: kpaveliev/skypro-c06-cw06-todolist:${GITHUB_REF_NAME}-${GITHUB_RUN_ID}
+    image: atimin/skypro-c06-cw06-todolist:${GITHUB_REF_NAME}-${GITHUB_RUN_ID}
     depends_on:
       migrations:
         condition: service_completed_successfully
@@ -29,7 +29,7 @@ services:
 
 
   migrations:
-    image: kpaveliev/skypro-c06-cw06-todolist:${GITHUB_REF_NAME}-${GITHUB_RUN_ID}
+    image: atimin/skypro-c06-cw06-todolist:${GITHUB_REF_NAME}-${GITHUB_RUN_ID}
     depends_on:
       db:
         condition: service_healthy
