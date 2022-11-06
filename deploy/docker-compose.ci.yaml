@@ -39,7 +39,7 @@ services:
       sh -c "python manage.py migrate"
 
   bot:
-    image: kpaveliev/skypro-c06-cw06-todolist:${GITHUB_REF_NAME}-${GITHUB_RUN_ID}
+    image: atimin/skypro-c06-cw06-todolist:${GITHUB_REF_NAME}-${GITHUB_RUN_ID}
     depends_on:
       migrations:
         condition: service_completed_successfully
