@@ -1,7 +1,7 @@
 import factory
 
 from todolist.core.models import User
-from todolist.goals.models import Goal, GoalCategory, Board, BoardParticipant, GoalComment
+from todolist.goals.models import Goal, Category, Board, BoardParticipant, Comment
 
 
 class UserFactory(factory.django.DjangoModelFactory):
@@ -34,7 +34,7 @@ class BoardParticipantFactory(factory.django.DjangoModelFactory):
 
 class GoalCategoryFactory(factory.django.DjangoModelFactory):
 	class Meta:
-		model = GoalCategory
+		model = Category
 
 	title = 'Test category'
 	is_deleted = False
@@ -58,7 +58,7 @@ class GoalFactory(factory.django.DjangoModelFactory):
 
 class GoalCommentFactory(factory.django.DjangoModelFactory):
 	class Meta:
-		model = GoalComment
+		model = Comment
 
 	text = 'Test text'
 	goal = factory.SubFactory(GoalFactory)

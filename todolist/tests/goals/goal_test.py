@@ -1,7 +1,7 @@
 import pytest
 
-from goals.serializers import GoalSerializer
-from tests.factories import GoalFactory
+from todolist.goals.serializers import GoalSerializer
+from todolist.tests.factories import GoalFactory
 
 
 @pytest.mark.django_db

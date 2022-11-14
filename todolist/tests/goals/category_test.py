@@ -1,6 +1,6 @@
 import pytest
 
-from todolist.goals.serializers import GoalCategorySerializer
+from todolist.goals.serializers import CategoryCreateSerializer
 from todolist.tests.factories import GoalCategoryFactory
 
 
@@ -36,7 +36,7 @@ def test_category_list(client, get_credentials, board_participant):
 	)
 
 	assert response.status_code == 200
-	assert response.data == GoalCategorySerializer(categories, many=True).data
+	assert response.data == CategoryCreateSerializer(categories, many=True).data
 
 
 @pytest.mark.django_db
@@ -48,7 +48,7 @@ def test_category_retrieve(client, get_credentials, goal_category, board_partici
 	)
 
 	assert response.status_code == 200
-	assert response.data == GoalCategorySerializer(goal_category).data
+	assert response.data == CategoryCreateSerializer(goal_category).data
 
 
 @pytest.mark.django_db

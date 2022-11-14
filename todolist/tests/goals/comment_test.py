@@ -1,7 +1,7 @@
 import pytest
 
-from goals.serializers import CommentSerializer
-from tests.factories import GoalCommentFactory
+from todolist.goals.serializers import CommentSerializer
+from todolist.tests.factories import GoalCommentFactory
 
 
 @pytest.mark.django_db

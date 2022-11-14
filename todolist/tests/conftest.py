@@ -1,6 +1,6 @@
 from pytest_factoryboy import register
 
-import tests.factories
+import todolist.tests.factories as tests
 
 register(tests.factories.UserFactory)
 register(tests.factories.BoardFactory)
