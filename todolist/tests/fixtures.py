@@ -1,27 +1,16 @@
+import base64
 import pytest
 
 
 @pytest.fixture
 @pytest.mark.django_db
-def user_csrf(client, django_user_model):
-    username = 'user'
-    # first_name = ''
-    # last_name = ''
-    # email = 'user@user.com'
-    password = 'mypassword20'
+def get_credentials(client, user):
+	"""Получение токена для аутентификации пользователя"""
+	password = user.password
 
-    django_user_model.objects.create_user(
-        username=username,
-        password=password
-    )
+	user.set_password(password)
+	user.save()
 
-    response = client.post(
-        '/core/login',
-        {
-            "username": username,
-            "password": password
-        },
-        format='json'
-    )
+	token = base64.b64encode(f'{user.username}:{password}'.encode()).decode()
 
-    return
+	return 'Basic ' + token
